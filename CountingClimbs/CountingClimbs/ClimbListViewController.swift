@@ -12,13 +12,15 @@ class ClimbListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var climbs: [String] = []
+    var climbs: [Climb] = []
+    var climbService: ClimbService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.climbs = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink"]
-        
+        self.climbService = ClimbService()
+        self.climbs = self.climbService.getClimbs()
+    
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -31,8 +33,11 @@ extension ClimbListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "climbCell") as! ClimbCellTableViewCell
         
-        cell.climbNameLabel.text = self.climbs[indexPath.row]
-        cell.climbDescLabel.text = "Beautiful slab climb outside"
+        let currentClimb = self.climbs[indexPath.row]
+        cell.climb = currentClimb
+        cell.climbNameLabel.text = currentClimb.name
+        cell.climbDescLabel.text = currentClimb.grade
+        cell.accessoryType = currentClimb.finishedClimb ? .checkmark : .none
         
         return cell
     }
@@ -46,5 +51,12 @@ extension ClimbListViewController: UITableViewDataSource {
 extension ClimbListViewController: UITableViewDelegate {
     //MARK: Delegate
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = self.tableView.cellForRow(at: indexPath) as? ClimbCellTableViewCell {
+            cell.climb?.finishedClimb = true
+            cell.accessoryType = cell.climb!.finishedClimb ? .checkmark : .none
+
+        }
     }
+}
 

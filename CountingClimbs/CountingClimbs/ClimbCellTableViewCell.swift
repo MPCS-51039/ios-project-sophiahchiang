@@ -10,8 +10,9 @@ import UIKit
 class ClimbCellTableViewCell: UITableViewCell {
 
     @IBOutlet weak var climbDescLabel: UILabel!
-    
     @IBOutlet weak var climbNameLabel: UILabel!
+    
+    var climb: Climb?
     
     override func awakeFromNib() {
         super.awakeFromNib()
