@@ -12,7 +12,13 @@ class ClimbCellTableViewCell: UITableViewCell {
     @IBOutlet weak var climbDescLabel: UILabel!
     @IBOutlet weak var climbNameLabel: UILabel!
     
-    var climb: Climb?
+    var climb: Climb? {
+        didSet {
+            self.climbNameLabel.text = climb?.name
+            self.climbDescLabel.text = climb?.grade
+            self.accessoryType = climb!.finishedClimb ? .checkmark : .none
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

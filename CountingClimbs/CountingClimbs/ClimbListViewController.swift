@@ -34,10 +34,8 @@ extension ClimbListViewController: UITableViewDataSource {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "climbCell") as! ClimbCellTableViewCell
         
         let currentClimb = self.climbs[indexPath.row]
+        
         cell.climb = currentClimb
-        cell.climbNameLabel.text = currentClimb.name
-        cell.climbDescLabel.text = currentClimb.grade
-        cell.accessoryType = currentClimb.finishedClimb ? .checkmark : .none
         
         return cell
     }
@@ -52,9 +50,12 @@ extension ClimbListViewController: UITableViewDelegate {
     //MARK: Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = self.tableView.cellForRow(at: indexPath) as? ClimbCellTableViewCell {
-            cell.climb?.finishedClimb = true
-            cell.accessoryType = cell.climb!.finishedClimb ? .checkmark : .none
+        if
+            let cell = self.tableView.cellForRow(at: indexPath) as? ClimbCellTableViewCell,
+            let confirmedFinishedClimb = cell.climb
+        {
+            confirmedFinishedClimb.finishedClimb = true
+            cell.accessoryType = confirmedFinishedClimb.finishedClimb ? .checkmark : .none
 
         }
     }
