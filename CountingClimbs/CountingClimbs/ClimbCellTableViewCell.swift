@@ -16,9 +16,10 @@ class ClimbCellTableViewCell: UITableViewCell {
         didSet {
             self.climbNameLabel.text = climb?.name
             self.climbDescLabel.text = climb?.grade
-            self.accessoryType = climb!.finishedClimb ? .checkmark : .none
+            self.accessoryType = climb!.isFinished ? .checkmark : .none
         }
     }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

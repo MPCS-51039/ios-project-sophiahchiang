@@ -24,6 +24,8 @@ class ClimbListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        self.title = "Climbs"
+        
     }
 }
 
@@ -37,6 +39,16 @@ extension ClimbListViewController: UITableViewDataSource {
         
         cell.climb = currentClimb
         
+        if currentClimb.isFavorite {
+            cell.backgroundColor = .systemPink
+            
+            //Color(red: 250, green: 218, blue: 221)
+        }
+        
+        if currentClimb.isFinished {
+            cell.accessoryType = .checkmark
+        }
+        
         return cell
     }
     
@@ -49,15 +61,47 @@ extension ClimbListViewController: UITableViewDataSource {
 extension ClimbListViewController: UITableViewDelegate {
     //MARK: Delegate
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if
-            let cell = self.tableView.cellForRow(at: indexPath) as? ClimbCellTableViewCell,
-            let confirmedFinishedClimb = cell.climb
-        {
-            confirmedFinishedClimb.finishedClimb = true
-            cell.accessoryType = confirmedFinishedClimb.finishedClimb ? .checkmark : .none
-
+//Checkmark from Chelsea videos
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if
+//            let cell = self.tableView.cellForRow(at: indexPath) as? ClimbCellTableViewCell,
+//            let confirmedFinishedClimb = cell.climb
+//        {
+//            confirmedFinishedClimb.finishedClimb = true
+//            cell.accessoryType = confirmedFinishedClimb.finishedClimb ? .checkmark : .none
+//        }
+//    }
+//
+    
+//Swipe functionality
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") {action, indexPath in self.climbs.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+        
+        let cell = climbs[indexPath.row]
+        
+        let favoriteActionTitle = cell.isFavorite ? "Unfavorite" : "Favorite"
+        let favoriteAction = UITableViewRowAction(style: .normal, title: favoriteActionTitle) {action, indexPath in
+            self.climbs[indexPath.row].isFavorite.toggle()
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        favoriteAction.backgroundColor = .systemGreen
+        
+        let finishedActionTitle = cell.isFinished ? "In progress" : "Finished"
+        let finishedAction = UITableViewRowAction(style: .normal, title: finishedActionTitle) {action, indexPath in
+            self.climbs[indexPath.row].isFinished.toggle()
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        finishedAction.backgroundColor = .systemBlue
+
+        return [deleteAction, favoriteAction, finishedAction]
     }
 }
 

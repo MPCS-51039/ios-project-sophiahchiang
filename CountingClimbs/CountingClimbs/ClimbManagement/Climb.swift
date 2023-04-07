@@ -11,7 +11,8 @@ class Climb {
     var name: String
     var grade: String
     var type: String
-    var finishedClimb: Bool = false
+    var isFinished: Bool = false
+    var isFavorite: Bool = false
     
     init(named name: String, grade: String, type: String) {
         self.name = name
