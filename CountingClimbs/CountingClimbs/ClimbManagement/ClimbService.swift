@@ -7,21 +7,38 @@
 
 import Foundation
 
+enum ClimbCallingError: Error {
+    case problemGeneratingURL
+    case problemGettingDataFromAPI
+    case problemDecodingData
+}
+
 class ClimbService {
+    private let urlString = "https://run.mocky.io/v3/a34976d9-b412-459a-bd4a-8515504735c4"
     
-    func getClimbs() -> [Climb] {
-        return [
-            Climb(named: "Pink Slab", grade: "v4", type: "bouldering", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Overhung by the door", grade: "v7", type: "bouldering", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Devil's Finger", grade: "v5", type: "lead climb", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Blue Dyno", grade: "v4", type: "bouldering", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Pink Slab", grade: "v4", type: "bouldering", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Overhung by the door", grade: "v7", type: "bouldering", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Devil's Finger", grade: "v5", type: "lead climb", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Blue Dyno", grade: "v4", type: "bouldering", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Pink Slab", grade: "v4", type: "bouldering", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Overhung by the door", grade: "v7", type: "bouldering", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Devil's Finger", grade: "v5", type: "lead climb", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg"),
-            Climb(named: "Blue Dyno", grade: "v4", type: "bouldering", imageUrl: "https://madera.objects.liquidweb.services/photos/16842-half-dome-closeup-from-glacier-point-steve-montalto-hmi-Rectangle-600x400.jpg")]
-    }
+    func getClimbs(completion: @escaping ([Climb]?, Error?) -> ()) {
+            guard let url = URL(string: self.urlString) else {
+                DispatchQueue.main.async { completion(nil, ClimbCallingError.problemGeneratingURL) }
+                return
+        }
+                
+            let request = URLRequest(url: url)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    DispatchQueue.main.async { completion(nil, ClimbCallingError.problemGettingDataFromAPI) }
+                    return
+                }
+                
+                do {
+                    let climbResult = try JSONDecoder().decode(ClimbResult.self, from: data)
+                    DispatchQueue.main.async { completion(climbResult.climbs, nil) }
+                } catch (let error) {
+                    print(error)
+                    DispatchQueue.main.async { completion(nil, ClimbCallingError.problemDecodingData) }
+                }
+                                                        
+            }
+            task.resume()
+        }
+    
 }

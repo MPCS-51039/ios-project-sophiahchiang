@@ -19,8 +19,15 @@ class ClimbListViewController: UIViewController {
         super.viewDidLoad()
         
         self.climbService = ClimbService()
-        self.climbs = self.climbService.getClimbs()
-    
+        self.climbService.getClimbs(completion: { climbs, error in
+            guard let climbs = climbs, error == nil else {
+                // here's where I can use errors to change UI
+                return
+            }
+            self.climbs = climbs
+            self.tableView.reloadData()
+        })
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
