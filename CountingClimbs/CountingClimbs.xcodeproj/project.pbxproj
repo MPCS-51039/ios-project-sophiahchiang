@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B2B472529E73BC800BAEF3D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B472429E73BC800BAEF3D /* DetailViewController.swift */; };
 		6B804C1A29E052B200AAF705 /* Climb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B804C1929E052B200AAF705 /* Climb.swift */; };
 		6B804C1C29E0572900AAF705 /* ClimbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B804C1B29E0572900AAF705 /* ClimbService.swift */; };
 		6BE33A6829D4C8B100308BF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE33A6729D4C8B100308BF3 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B2B472429E73BC800BAEF3D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6B804C1929E052B200AAF705 /* Climb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb.swift; sourceTree = "<group>"; };
 		6B804C1B29E0572900AAF705 /* ClimbService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbService.swift; sourceTree = "<group>"; };
 		6BE33A6429D4C8B100308BF3 /* CountingClimbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountingClimbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				6BE33A6729D4C8B100308BF3 /* AppDelegate.swift */,
 				6BE33A6929D4C8B100308BF3 /* SceneDelegate.swift */,
 				6BE33A6B29D4C8B100308BF3 /* ClimbListViewController.swift */,
+				6B2B472429E73BC800BAEF3D /* DetailViewController.swift */,
 				6B804C1D29E0583200AAF705 /* ClimbManagement */,
 				6BE33A6D29D4C8B100308BF3 /* Main.storyboard */,
 				6BE33A7B29D73BF000308BF3 /* ClimbCellTableViewCell.swift */,
@@ -161,6 +164,7 @@
 				6BE33A6829D4C8B100308BF3 /* AppDelegate.swift in Sources */,
 				6BE33A6A29D4C8B100308BF3 /* SceneDelegate.swift in Sources */,
 				6B804C1C29E0572900AAF705 /* ClimbService.swift in Sources */,
+				6B2B472529E73BC800BAEF3D /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

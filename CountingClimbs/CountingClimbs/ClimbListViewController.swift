@@ -27,6 +27,15 @@ class ClimbListViewController: UIViewController {
         self.title = "Climbs"
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard
+            let destination = segue.destination as? DetailViewController,
+            let selectedIndexPath = self.tableView.indexPathForSelectedRow,
+            let confirmedCell = self.tableView.cellForRow(at: selectedIndexPath) as? ClimbCellTableViewCell else { return }
+                    
+        let confirmedClimb = confirmedCell.climb
+        destination.climb = confirmedClimb
+    }
 }
 
 extension ClimbListViewController: UITableViewDataSource {
@@ -49,6 +58,7 @@ extension ClimbListViewController: UITableViewDataSource {
             cell.accessoryType = .checkmark
         }
         
+        
         return cell
     }
     
@@ -60,6 +70,7 @@ extension ClimbListViewController: UITableViewDataSource {
     
 extension ClimbListViewController: UITableViewDelegate {
     //MARK: Delegate
+    
     
 //Checkmark from Chelsea videos
     
