@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B26ACDC29F1E2130036062E /* CountingClimbsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B26ACDB29F1E2130036062E /* CountingClimbsTests.swift */; };
+		6B26ACE329F1E2770036062E /* ClimbTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B26ACE229F1E2770036062E /* ClimbTest.swift */; };
+		6B26ACE529F1E7200036062E /* ClimbServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B26ACE429F1E7200036062E /* ClimbServiceTests.swift */; };
+		6B26ACE729F1E8F20036062E /* ClimbListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B26ACE629F1E8F20036062E /* ClimbListViewControllerTests.swift */; };
 		6B2B472529E73BC800BAEF3D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B472429E73BC800BAEF3D /* DetailViewController.swift */; };
 		6B804C1A29E052B200AAF705 /* Climb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B804C1929E052B200AAF705 /* Climb.swift */; };
 		6B804C1C29E0572900AAF705 /* ClimbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B804C1B29E0572900AAF705 /* ClimbService.swift */; };
@@ -19,7 +23,22 @@
 		6BE33A7C29D73BF000308BF3 /* ClimbCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE33A7B29D73BF000308BF3 /* ClimbCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6B26ACDD29F1E2130036062E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BE33A5C29D4C8B100308BF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BE33A6329D4C8B100308BF3;
+			remoteInfo = CountingClimbs;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		6B26ACD929F1E2130036062E /* CountingClimbsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountingClimbsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B26ACDB29F1E2130036062E /* CountingClimbsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingClimbsTests.swift; sourceTree = "<group>"; };
+		6B26ACE229F1E2770036062E /* ClimbTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbTest.swift; sourceTree = "<group>"; };
+		6B26ACE429F1E7200036062E /* ClimbServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbServiceTests.swift; sourceTree = "<group>"; };
+		6B26ACE629F1E8F20036062E /* ClimbListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbListViewControllerTests.swift; sourceTree = "<group>"; };
 		6B2B472429E73BC800BAEF3D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6B804C1929E052B200AAF705 /* Climb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climb.swift; sourceTree = "<group>"; };
 		6B804C1B29E0572900AAF705 /* ClimbService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbService.swift; sourceTree = "<group>"; };
@@ -35,6 +54,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6B26ACD629F1E2130036062E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BE33A6129D4C8B100308BF3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -45,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B26ACDA29F1E2130036062E /* CountingClimbsTests */ = {
+			isa = PBXGroup;
+			children = (
+				6B26ACDB29F1E2130036062E /* CountingClimbsTests.swift */,
+				6B26ACE229F1E2770036062E /* ClimbTest.swift */,
+				6B26ACE429F1E7200036062E /* ClimbServiceTests.swift */,
+				6B26ACE629F1E8F20036062E /* ClimbListViewControllerTests.swift */,
+			);
+			path = CountingClimbsTests;
+			sourceTree = "<group>";
+		};
 		6B804C1D29E0583200AAF705 /* ClimbManagement */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				6BE33A6629D4C8B100308BF3 /* CountingClimbs */,
+				6B26ACDA29F1E2130036062E /* CountingClimbsTests */,
 				6BE33A6529D4C8B100308BF3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				6BE33A6429D4C8B100308BF3 /* CountingClimbs.app */,
+				6B26ACD929F1E2130036062E /* CountingClimbsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +129,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6B26ACD829F1E2130036062E /* CountingClimbsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B26ACDF29F1E2130036062E /* Build configuration list for PBXNativeTarget "CountingClimbsTests" */;
+			buildPhases = (
+				6B26ACD529F1E2130036062E /* Sources */,
+				6B26ACD629F1E2130036062E /* Frameworks */,
+				6B26ACD729F1E2130036062E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6B26ACDE29F1E2130036062E /* PBXTargetDependency */,
+			);
+			name = CountingClimbsTests;
+			productName = CountingClimbsTests;
+			productReference = 6B26ACD929F1E2130036062E /* CountingClimbsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6BE33A6329D4C8B100308BF3 /* CountingClimbs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BE33A7829D4C8B900308BF3 /* Build configuration list for PBXNativeTarget "CountingClimbs" */;
@@ -114,9 +171,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					6B26ACD829F1E2130036062E = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 6BE33A6329D4C8B100308BF3;
+					};
 					6BE33A6329D4C8B100308BF3 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -136,11 +197,19 @@
 			projectRoot = "";
 			targets = (
 				6BE33A6329D4C8B100308BF3 /* CountingClimbs */,
+				6B26ACD829F1E2130036062E /* CountingClimbsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6B26ACD729F1E2130036062E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BE33A6229D4C8B100308BF3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -154,6 +223,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6B26ACD529F1E2130036062E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B26ACDC29F1E2130036062E /* CountingClimbsTests.swift in Sources */,
+				6B26ACE329F1E2770036062E /* ClimbTest.swift in Sources */,
+				6B26ACE729F1E8F20036062E /* ClimbListViewControllerTests.swift in Sources */,
+				6B26ACE529F1E7200036062E /* ClimbServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BE33A6029D4C8B100308BF3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,6 +249,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6B26ACDE29F1E2130036062E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6BE33A6329D4C8B100308BF3 /* CountingClimbs */;
+			targetProxy = 6B26ACDD29F1E2130036062E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6BE33A6D29D4C8B100308BF3 /* Main.storyboard */ = {
@@ -190,6 +278,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6B26ACE029F1E2130036062E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sophiahchiang.CountingClimbsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CountingClimbs.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CountingClimbs";
+			};
+			name = Debug;
+		};
+		6B26ACE129F1E2130036062E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sophiahchiang.CountingClimbsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CountingClimbs.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CountingClimbs";
+			};
+			name = Release;
+		};
 		6BE33A7629D4C8B900308BF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -369,6 +493,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6B26ACDF29F1E2130036062E /* Build configuration list for PBXNativeTarget "CountingClimbsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B26ACE029F1E2130036062E /* Debug */,
+				6B26ACE129F1E2130036062E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6BE33A5F29D4C8B100308BF3 /* Build configuration list for PBXProject "CountingClimbs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

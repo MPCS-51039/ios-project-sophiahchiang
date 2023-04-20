@@ -19,7 +19,19 @@ class ClimbListViewController: UIViewController {
         super.viewDidLoad()
         
         self.climbService = ClimbService()
-        self.climbService.getClimbs(completion: { climbs, error in
+        
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        self.title = "Climbs"
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let confirmedService = self.climbService else { return }
+        
+        confirmedService.getClimbs(completion: { climbs, error in
             guard let climbs = climbs, error == nil else {
                 // here's where I can use errors to change UI
                 return
@@ -27,12 +39,6 @@ class ClimbListViewController: UIViewController {
             self.climbs = climbs
             self.tableView.reloadData()
         })
-        
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
-        self.title = "Climbs"
-        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard
