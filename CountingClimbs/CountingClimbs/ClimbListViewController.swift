@@ -28,11 +28,35 @@ class ClimbListViewController: UIViewController {
         
     }
     
+//    enum CustomError: Error {
+//        case empty
+//    }
+//    extension CustomError: CustomStringConvertible {
+//        public var description: String {
+//            switch self {
+//            case .empty:
+//                return "The API is empty."
+//            }
+//        }
+//    }
+    
     override func viewWillAppear(_ animated: Bool) {
         guard let confirmedService = self.climbService else { return }
         
         confirmedService.getClimbs(completion: { climbs, error in
             guard let climbs = climbs, error == nil else {
+                let climbError = error as! ClimbCallingError
+                switch (climbError) {
+                case .emptyAPI:
+                    print ("empty API") //#7. Let app user know that the list is empty
+                case .problemDecodingData:
+                    print ("problemDecodingData")
+                case .problemGeneratingURL:
+                    print ("problemGeneratingURL")
+                case .problemGettingDataFromAPI:
+                    print ("problemGettingDataFromAPI")
+                
+                }
                 // here's where I can use errors to change UI
                 return
             }
