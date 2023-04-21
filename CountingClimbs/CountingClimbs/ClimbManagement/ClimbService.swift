@@ -16,9 +16,9 @@ enum ClimbCallingError: Error {
 }
 
 class ClimbService {
-    private let urlString = "https://run.mocky.io/v3/babf464a-0b67-4bbe-8770-b2e69cfac3f2"
-    // "http://www.mocky.io/v2/5e9d1faf30000022cb0a80e1"
-    //"https://run.mocky.io/v3/b3849c0b-c229-497d-878c-9808b7fe695d"
+    private let urlString = "https://run.mocky.io/v3/b3849c0b-c229-497d-878c-9808b7fe695d"
+    // "https://run.mocky.io/v3/babf464a-0b67-4bbe-8770-b2e69cfac3f2" <- empty climb url for testing
+    // "http://www.mocky.io/v2/5e9d1faf30000022cb0a80e1" <- incorrect bird url for testing
 
     
     func getClimbs(completion: @escaping ([Climb]?, Error?) -> ()) {
