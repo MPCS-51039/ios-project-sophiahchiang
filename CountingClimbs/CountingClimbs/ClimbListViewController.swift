@@ -10,6 +10,7 @@ import UIKit
 class ClimbListViewController: UIViewController {
     
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     var climbs: [Climb] = []
@@ -41,6 +42,9 @@ class ClimbListViewController: UIViewController {
 //    }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.spinner.hidesWhenStopped = true
+        self.spinner.startAnimating()
+        
         guard let confirmedService = self.climbService else { return }
         
         confirmedService.getClimbs(completion: { climbs, error in
@@ -62,6 +66,7 @@ class ClimbListViewController: UIViewController {
             }
             self.climbs = climbs
             self.tableView.reloadData()
+            self.spinner.stopAnimating()
         })
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

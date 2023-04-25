@@ -64,6 +64,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2HV-1U-ttG" userLabel="Spinner">
+                                <rect key="frame" x="186" y="416" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -76,6 +80,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WIE-hB-dSU"/>
                     <connections>
+                        <outlet property="spinner" destination="2HV-1U-ttG" id="lqU-dc-XIY"/>
                         <outlet property="tableView" destination="EH3-Yd-5pK" id="sun-fe-YiU"/>
                     </connections>
                 </viewController>
