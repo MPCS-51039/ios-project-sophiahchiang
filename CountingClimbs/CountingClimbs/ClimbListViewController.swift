@@ -13,6 +13,18 @@ class ClimbListViewController: UIViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func sortClimbs(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.climbs.sort { $0.name < $1.name }
+        case 1:
+            self.climbs.sort { $0.name > $1.name }
+        default:
+            break
+        }
+        self.tableView.reloadData()
+    }
+    
     var climbs: [Climb] = []
     var climbService: ClimbService!
     
@@ -29,6 +41,8 @@ class ClimbListViewController: UIViewController {
         
     }
     
+
+    
 //    enum CustomError: Error {
 //        case empty
 //    }
@@ -40,6 +54,7 @@ class ClimbListViewController: UIViewController {
 //            }
 //        }
 //    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.spinner.hidesWhenStopped = true
@@ -78,6 +93,19 @@ class ClimbListViewController: UIViewController {
         let confirmedClimb = confirmedCell.climb
         destination.climb = confirmedClimb
     }
+    
+//    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
+//        switch segmentedControl.selectedSegmentIndex {
+//        case 0:
+//            shows.showArray.sort(by : {$0.show.name < $1.show.name})
+//        case 1:
+//            shows.showArray.sort(by: {$0.show.rating?.average ?? 0.0 > $1 show.rating?.average ?? 0.0})
+//        default:
+//            print("ERROR: This should never happen.")
+//        }
+//        tableView.reloadData()
+//    }
+    
 }
 
 extension ClimbListViewController: UITableViewDataSource {
@@ -108,6 +136,7 @@ extension ClimbListViewController: UITableViewDataSource {
         
         return self.climbs.count
     }
+    
 }
     
 extension ClimbListViewController: UITableViewDelegate {
@@ -157,4 +186,6 @@ extension ClimbListViewController: UITableViewDelegate {
         return [deleteAction, favoriteAction, finishedAction]
     }
 }
+
+
 
